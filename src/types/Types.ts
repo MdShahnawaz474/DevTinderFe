@@ -25,7 +25,19 @@ export interface User {
 
 export interface FeedUser {
   
-  _id?: string;
+  _id: string ;
+  firstName: string;
+  lastName: string;
+  photoUrl: string;
+  about: string;
+  age?:Number;
+  gender?:string;
+  skills?:string[];
+}
+
+export interface FeedUser2 {
+  
+  _id?: string ;
   firstName: string;
   lastName: string;
   photoUrl: string;
@@ -57,3 +69,8 @@ export interface Connection  {
   age?:string,
   gender?:string
 };
+
+export interface ReviewRequestTypes{
+  _id:string;
+  status:string;
+}

@@ -16,8 +16,6 @@ import { editProfile } from "../services/DataService";
 const EditProfile = ({user}:any) => {
  
   // console.log(user);
-  
-
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
   const [firstName, setFirstName] = useState(user?.firstName);
@@ -91,12 +89,11 @@ const [birthDate, setBirthDate] = useState(user?.birthDate || "");
     }
     try {
       const result = await editProfile({
+         _id: user?._id,
         firstName,
         lastName,
         gender,
-          age: age ? parseInt(age) : undefined,
-
-
+        age: age ? parseInt(age) : undefined,
         about,
         photoUrl,
         skills: skills.split(",").map((skill:any) => skill.trim()),

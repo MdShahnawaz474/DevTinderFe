@@ -13,10 +13,8 @@ const Profile = () => {
   const [isLoading,setIsLoading] = useState(false);
 
   const getFeed = async()=>{
-   try {
      if(feed)return ;
-       setIsLoading(true);
-    setError(null);
+   try {
     const result = await getFeedData();
     // console.log(result.data);
     

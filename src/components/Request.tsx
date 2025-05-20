@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { getRequests } from "../services/DataService";
+import { getRequests, reviewRequests } from "../services/DataService";
 import { useDispatch, useSelector } from "react-redux";
-import { addRequest } from "../utils/requestSlice";
+import { addRequest, removeRequest } from "../utils/requestSlice";
 import type { RootState } from "../utils/appStore";
 import { GitPullRequest, GitPullRequestClosedIcon } from "lucide-react";
 
@@ -40,7 +40,7 @@ const Request = () => {
     try {
       setLoading(true);
       const result = await getRequests();
-      console.log(result.data.data);
+      // console.log(result.data.data);
       if (result.success) {
         dispatch(addRequest(result.data.data));
       } else if (result) {
@@ -53,6 +53,21 @@ const Request = () => {
       setLoading(false);
     }
   };
+
+  const fetchReviewRequest = async (status:string,_id:string)=>{
+    try {
+
+    const result = await reviewRequests(status,_id);
+      if(result.data){
+        dispatch(removeRequest(_id));
+      }else {
+      setError(result.message || "Failed to review request");
+    }
+    } catch (error:any) {
+      setError(error.message || "Unknown error ")
+    }
+  }
+
 
   useEffect(() => {
     fetchRequest();
@@ -155,14 +170,16 @@ const Request = () => {
                     </button>
                     
                     <div className="flex space-x-4">
-                      <button className="flex-1 bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded-full transition-colors font-medium flex items-center justify-center">
+                      <button className="flex-1 bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded-full transition-colors font-medium flex items-center justify-center" onClick={()=>fetchReviewRequest("",request._id)}>
                         <span className="mr-2">✓</span>
                        <span className="flex items-center">
                <GitPullRequest size={18}/> Git Add
               </span>
                       </button>
                       
-                      <button className="flex-1 bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded-full transition-colors font-medium flex items-center justify-center">
+                      <button className="flex-1 bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded-full transition-colors font-medium flex items-center justify-center"
+                      onClick={()=>fetchReviewRequest("rejected",request._id)}
+                      >
                         <span className="mr-2">✕</span>
                        <span className="flex items-center">
 
