@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 import { BackgroundGradient } from "../ui/Background-gradient";
 import type { FeedUser } from "../types/Types";
-import { GitBranchIcon, GitPullRequest, GitPullRequestClosedIcon, GitPullRequestIcon } from "lucide-react";
+import {  GitPullRequest, GitPullRequestClosedIcon, } from "lucide-react";
 
 type Skill = string;
 
@@ -10,7 +10,7 @@ export default function UserProfileCardGrid({ user }: { user:  FeedUser}) {
   const [ignoreHover, setIgnoreHover] = useState(false);
     console.log(user);
     
-   const { _id, firstName, lastName, photoUrl, age, gender, about,skills } = user
+   const {  firstName, lastName, photoUrl, age, gender, about,skills } = user
 
   // Sample user data from your API response
 
@@ -25,16 +25,16 @@ export default function UserProfileCardGrid({ user }: { user:  FeedUser}) {
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-6 p-6  ">
-       
         <div>
           <BackgroundGradient className="rounded-[22px] max-w-sm p-4 sm:p-10 bg-gradient-to-b from-yellow-900 to-blue-900 dark:bg-zinc-900">
+            <div className="w-full aspect-square max-w-xs bg-gray-100 rounded-md overflow-hidden">
             <img
               src={photoUrl}
               alt={`${firstName} ${lastName}`}
               height="400"
               width="400"
               className="object-contain rounded-lg"
-            />
+            /></div>
              <p className="text-base sm:text-xl font-bold bg-gradient-to-r from-amber-300 to-red-500 bg-clip-text text-transparent mt-4 mb-2">
             {firstName} {lastName}
           </p>

@@ -124,17 +124,7 @@ const [birthDate, setBirthDate] = useState(user?.birthDate || "");
 
   return (
    <div className="flex justify-center  bg-gradient-to-b from-gray-900 to-blue-950 gap-10 w-full">
-    {/* Toast notification */}
-      {toast.show && (
-        <div className={`fixed mt-12 justify-center top-4 right-4 z-50 px-4 py-3 rounded-lg shadow-lg flex items-center transition-all duration-300 ${
-          toast.type === "success" ? "bg-green-500 text-white" : "bg-red-500 text-white"
-        }`}>
-          <span className="mr-2">
-            {toast.type === "success" ? "✓" : "✕"}
-          </span>
-          <span>{toast.message}</span>
-        </div>
-      )}
+   
      <div className="flex justify-center py-8  items-center  min-h-screen bg-gradient-to-b from-gray-900 to-blue-950">
       <div className="w-full max-w-md px-4">
         <div className="card bg-gray-800 shadow-xl rounded-lg overflow-hidden border border-blue-500">
@@ -345,6 +335,17 @@ const [birthDate, setBirthDate] = useState(user?.birthDate || "");
         </div>
       </div>
     </div>
+     {/* Toast notification */}
+      {toast.show && (
+        <div className={`fixed mt-12 justify-center  top-4 right-4 z-50 px-4 py-3 rounded-lg shadow-lg flex  items-center transition-all duration-300 ${
+          toast.type === "success" ? "bg-green-500 text-white" : "bg-red-500 text-white"
+        }`}>
+          <span className="mr-2">
+            {toast.type === "success" ? "✓" : "✕"}
+          </span>
+          <span>{toast.message}</span>
+        </div>
+      )}
 
     </div>
   );

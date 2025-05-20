@@ -1,4 +1,3 @@
-import EditProfile from "./EditProfile"
 
 const Feed = () => {
   return (

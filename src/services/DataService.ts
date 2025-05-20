@@ -53,3 +53,55 @@ export const editProfile = async ({firstName,
   }
   }
 
+export const getConnections = async () => {
+  try {
+    const res = await axios.get(`${BASE_URL}/user/connections`, {
+      withCredentials: true
+    });
+    console.log(res);
+    return {
+      success: true,
+      data: res.data
+    };
+  } catch (error: any) {
+    const message =
+      error.response?.data?.message ||
+      error.response?.data ||
+      error.message ||
+      "Unknown error";
+
+    return {
+      success: false,
+      message,
+      error: message,
+    };
+  }
+}
+
+export const getRequests = async()=>{
+  try {
+    const res = await axios.get(`${BASE_URL}/user/requests/recieved`,{
+      withCredentials:true
+    })
+    console.log(res);
+    return {
+      success:true,
+      data:res.data
+    };
+    
+  } catch (error:any) {
+     const message =
+      error.response?.data?.message ||
+      error.response?.data ||
+      error.message ||
+      "Unknown error";
+
+    return {
+      success: false,
+      message,
+      error: message,
+    };
+  }
+}
+
+

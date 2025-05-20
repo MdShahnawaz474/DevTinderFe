@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux"
 import { getFeedData } from "../services/AuthService";
 import { addfeed } from "../utils/feedSlice";
 import { useEffect, useState } from "react";
-import BackgroundGradientDemo from "./UserProfileCardGrid";
 import UserProfileCardGrid from "./UserProfileCardGrid";
 
 const Profile = () => {

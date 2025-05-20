@@ -44,8 +44,8 @@ const Navbar = () => {
           <a href="/matches" className="text-gray-300 hover:text-blue-400 px-3 py-2 text-sm font-medium">
             Matches
           </a>
-          <a href="/projects" className="text-gray-300 hover:text-blue-400 px-3 py-2 text-sm font-medium">
-            Projects
+          <a href="/requests" className="text-gray-300 hover:text-blue-400 px-3 py-2 text-sm font-medium">
+            Requests
           </a>
         </div>}
 
@@ -82,7 +82,7 @@ const Navbar = () => {
             className="mt-3 z-10 p-2 shadow menu menu-sm dropdown-content bg-gray-700 rounded-lg w-52 border border-gray-600"
           >
             <li>
-              <a className="text-gray-200 hover:bg-gray-600 flex items-center px-4 py-2" href="/profile">
+              <a className="text-gray-200 hover:bg-gray-600 flex items-center px-4 py-2" href="/edit-profile">
                 <UserCircle className="h-4 w-4 mr-2" /> 
                 Profile
                 <span className="badge bg-blue-500 border-blue-500 text-white text-xs ml-auto">New</span>

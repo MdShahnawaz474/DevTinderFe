@@ -39,11 +39,11 @@ const Login = () => {
         password: formData.password,
       });
 
-      // console.log("Login API response:",result);
+      console.log("Login API response:",result);
 
       if (result.success) {
-       dispatch(addUser(result.user));
 
+       dispatch(addUser(result.safeUser));
         navigate("/feed");
       } else {
         setError(result.message || "Login failed. Please try again.");
