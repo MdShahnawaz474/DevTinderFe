@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { BackgroundGradient } from "../ui/Background-gradient";
-import type { FeedUser, FeedUser2 } from "../types/Types";
 import { GitPullRequest, GitPullRequestClosedIcon } from "lucide-react";
 import { SendAcceptReject } from "../services/DataService";
 import { useDispatch } from "react-redux";

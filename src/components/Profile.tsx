@@ -29,7 +29,20 @@ const Profile = () => {
 
   useEffect(()=>{
     getFeed()
-  })
+  },[]);
+
+   
+  if (isLoading) {
+    return <div className="flex justify-center items-center h-screen bg-gradient-to-b from-gray-900 to-blue-950">
+      <p className="text-white">Loading...</p>
+    </div>;
+  }
+  
+  if (error) {
+    return <div className="flex justify-center items-center h-screen bg-gradient-to-b from-gray-900 to-blue-950">
+      <p className="text-red-500">{error}</p>
+    </div>;
+  }
   return (
   feed && ( <div className="justify-center items-center flex py-11 bg-gradient-to-b from-gray-900 to-blue-950">
      <UserProfileCardGrid user = {feed[0]}/>

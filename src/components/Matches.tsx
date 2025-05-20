@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { getConnections } from "../services/DataService";
 import type { Connection } from "../types/Types";
-import { BackgroundGradient } from "../ui/Background-gradient";
 import { useDispatch } from "react-redux";
 import { addConnections } from "../utils/connectionSlice";
 

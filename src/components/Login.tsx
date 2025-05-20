@@ -1,17 +1,6 @@
 import React, { useState } from "react";
 // import { useNavigate } from 'react-router-dom';
-import {
-  Heart,
-  Mail,
-  Lock,
-  ArrowRight,
-  LaptopIcon,
-  CodeXml,
-  Code,
-  Terminal,
-  Braces,
-  LogIn,
-} from "lucide-react";
+import { Mail, Lock, CodeXml, Code, LogIn } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import type { FormData } from "../types/Types";
 import { loginUser } from "../services/AuthService";
@@ -39,17 +28,18 @@ const Login = () => {
         password: formData.password,
       });
 
-      console.log("Login API response:",result);
+      console.log("Login API response:", result);
 
       if (result.success) {
-
-       dispatch(addUser(result.safeUser));
+        dispatch(addUser(result.safeUser));
         navigate("/feed");
       } else {
         setError(result.message || "Login failed. Please try again.");
       }
-    } catch (err:any) {
-      setError(err.message||"Failed to connect to the server. Please try again.");
+    } catch (err: any) {
+      setError(
+        err.message || "Failed to connect to the server. Please try again."
+      );
     } finally {
       setIsLoading(false);
     }
@@ -74,7 +64,7 @@ const Login = () => {
             </h2>
 
             <div className="text-center text-gray-400 mb-5">
-             <p> Sign in to connect with your coding soulmates</p>
+              <p> Sign in to connect with your coding soulmates</p>
               <p className="text-red-500 mt-1">{error}</p>
             </div>
             <form onSubmit={handleSubmit} className="space-y-5">
