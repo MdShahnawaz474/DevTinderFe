@@ -65,7 +65,7 @@ const Matches = () => {
             {connections.map((connection) => (
               <div
                 key={connection._id}
-                className="rounded-xl overflow-hidden shadow-lg bg-gradient-to-b from-yellow-900 to-blue-900 border border-blue-400 border-opacity-20"
+                className="rounded-xl overflow-hidden shadow-lg bg-gradient-to-b from-yellow-900 to-blue-900 border border-blue-400 border-opacity-20 transition-all duration-300 hover:scale-[1.02] hover:shadow-xl hover:z-10"
               >
                 <div className="p-4 bg-brown-600 flex justify-center">
                   <div className="w-full aspect-square max-w-xs bg-gray-100 rounded-md overflow-hidden">

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { BackgroundGradient } from "../ui/Background-gradient";
-import { GitPullRequest, GitPullRequestClosedIcon } from "lucide-react";
+import { GitPullRequest, GitPullRequestClosedIcon, Users } from "lucide-react";
 import { SendAcceptReject } from "../services/DataService";
 import { useDispatch } from "react-redux";
 import { removeUserFromFeed } from "../utils/feedSlice";
@@ -8,9 +8,33 @@ import { removeUserFromFeed } from "../utils/feedSlice";
 type Skill = string;
 
 export default function UserProfileCardGrid({ user }: { user: any}) {
-    if (!user) {
-    return null; // or show a loading spinner, placeholder, etc.
+     // Check if user exists
+ if (!user) {
+    return (
+      <div className="flex items-center justify-center w-full h-full min-h-[80vh]">
+        <div className="text-center p-8 rounded-lg bg-gray-900/50 max-w-md w-full mx-auto">
+          <svg 
+            className="mx-auto h-20 w-20 text-gray-500 mb-6"
+            viewBox="0 0 24 24"
+            fill="none" 
+            stroke="currentColor" 
+            strokeWidth="1.5"
+            strokeLinecap="round" 
+            strokeLinejoin="round"
+          >
+            <path d="M18 21a8 8 0 0 0-16 0"></path>
+            <circle cx="10" cy="8" r="5"></circle>
+            <path d="M22 20c0-3.37-2-6.5-4-8a5 5 0 0 0-.45-8.3"></path>
+          </svg>
+          <h3 className="text-2xl font-medium text-white mb-2">No users found</h3>
+          <p className="text-gray-400">
+            There are currently no users available in your feed.
+          </p>
+        </div>
+      </div>
+    );
   }
+
   const dispatch = useDispatch();
   const [interestedHover, setInterestedHover] = useState(false);
   const [ignoreHover, setIgnoreHover] = useState(false);
@@ -52,6 +76,7 @@ export default function UserProfileCardGrid({ user }: { user: any}) {
               className="object-contain rounded-lg"
             />
           </div>
+          
           <p className="text-base sm:text-xl font-bold bg-gradient-to-r from-amber-300 to-red-500 bg-clip-text text-transparent mt-4 mb-2">
             {firstName} {lastName}
           </p>
