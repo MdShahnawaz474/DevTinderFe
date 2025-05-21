@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { BackgroundGradient } from "../ui/Background-gradient";
-import { GitPullRequest, GitPullRequestClosedIcon, Users } from "lucide-react";
+import { GitPullRequest, GitPullRequestClosedIcon } from "lucide-react";
 import { SendAcceptReject } from "../services/DataService";
 import { useDispatch } from "react-redux";
 import { removeUserFromFeed } from "../utils/feedSlice";
