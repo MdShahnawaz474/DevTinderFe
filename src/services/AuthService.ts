@@ -1,7 +1,7 @@
 import axios, { AxiosError } from "axios";
 import type { LoginCredentials } from "../types/Types";
 
-export const BASE_URL = import.meta.env.VITE_BASEURL;
+export const BASE_URL =  "/api"  //import.meta.env.VITE_BASEURL;
 export const loginUser = async ({ emailId, password }: LoginCredentials) => {
   try {
     const res = await axios.post(
