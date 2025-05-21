@@ -3,7 +3,7 @@ import { Code, Bell, MessageSquare, Settings, LogOut, UserCircle, CodeXml, UserP
 import  { useDispatch, useSelector } from "react-redux";
 import {handleLogOuts} from "../services/AuthService"
 import { removeUser } from "../utils/userSlice";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 const Navbar = () => {
   const navigate = useNavigate()
   const user = useSelector((store:RootState)=>store.user)
@@ -38,15 +38,15 @@ const Navbar = () => {
         {/* Navigation links - hidden on mobile */}
         {user && 
         <div className="hidden md:flex items-center gap-4 mr-4 ">
-          <a href="/feed" className="text-gray-300 hover:text-blue-400 px-3 py-2 text-sm font-medium">
+          <Link to="/feed" className="text-gray-300 hover:text-blue-400 px-3 py-2 text-sm font-medium">
             Feed
-          </a>
-          <a href="/matches" className="text-gray-300 hover:text-blue-400 px-3 py-2 text-sm font-medium">
+          </Link>
+          <Link to="/matches" className="text-gray-300 hover:text-blue-400 px-3 py-2 text-sm font-medium">
             Matches
-          </a>
-          <a href="/requests" className="text-gray-300 hover:text-blue-400 px-3 py-2 text-sm font-medium">
+          </Link>
+          <Link to="/requests" className="text-gray-300 hover:text-blue-400 px-3 py-2 text-sm font-medium">
             Requests
-          </a>
+          </Link>
         </div>}
 
         {/* Notification icons */}
@@ -82,20 +82,20 @@ const Navbar = () => {
             className="mt-3 z-10 p-2 shadow menu menu-sm dropdown-content bg-gray-700 rounded-lg w-52 border border-gray-600"
           >
             <li>
-              <a className="text-gray-200 hover:bg-gray-600 flex items-center px-4 py-2" href="/edit-profile">
+              <Link className="text-gray-200 hover:bg-gray-600 flex items-center px-4 py-2" to="/edit-profile">
                 <UserCircle className="h-4 w-4 mr-2" /> 
                 Profile
                 <span className="badge bg-blue-500 border-blue-500 text-white text-xs ml-auto">New</span>
-              </a>
+              </Link>
             </li>
             <li>
-              <a className="text-gray-200 hover:bg-gray-600 flex items-center px-4 py-2">
+              <Link to={"/"} className="text-gray-200 hover:bg-gray-600 flex items-center px-4 py-2">
                 <Settings className="h-4 w-4 mr-2" />
                 Settings
-              </a>
+              </Link>
             </li>
             <li className="border-t border-gray-600">
-              <a onClick={handleLogOut} className="text-gray-200 hover:bg-gray-600 flex items-center px-4 py-2">
+              <a   onClick={handleLogOut} className="text-gray-200 hover:bg-gray-600 flex items-center px-4 py-2">
                 <LogOut className="h-4 w-4 mr-2" />
                 Logout
               </a>

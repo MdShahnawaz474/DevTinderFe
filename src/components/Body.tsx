@@ -15,6 +15,8 @@ function Body() {
       // console.log(result);
       
     if(result){
+      // console.log(result.data);
+      
         dispatch(addUser(result?.data));
         // console.log(result.data);
         
