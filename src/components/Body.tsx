@@ -28,8 +28,11 @@ function Body() {
   }
 
   useEffect(()=>{
+  
+ 
     getData()
   },[])
+  
   return (
     <div>
     <Navbar/>

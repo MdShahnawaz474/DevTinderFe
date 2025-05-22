@@ -4,6 +4,33 @@ export interface LoginCredentials {
   password: string;
 }
 
+export interface SignupCrediantls {
+  firstName : string,
+  lastName :string,
+  emailId:string,
+  password: string,
+  age:string,
+  gender:string,
+  photoUrl:string
+  about:string,
+}
+export interface SignupData {
+  firstName: string;
+  lastName: string;
+  username?: string;
+  email: string;
+  password: string;
+  gender: string;
+  age: string;
+  photoUrl: string;
+  about :string;
+}
+
+export interface StepProps {
+  formData: SignupData;
+  errors: Partial<SignupData>;
+  onChange: (field: keyof SignupData, value: string) => void;
+}
 export interface FormData {
   email: string;
   password: string;
@@ -74,3 +101,4 @@ export interface ReviewRequestTypes{
   _id:string;
   status:string;
 }
+

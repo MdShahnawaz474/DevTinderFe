@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 // import { useNavigate } from 'react-router-dom';
 import { Mail, Lock, CodeXml, Code, LogIn } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import type { FormData } from "../types/Types";
-import { loginUser } from "../services/AuthService";
+import { isAuthenticateUser, loginUser } from "../services/AuthService";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
 const Login = () => {
@@ -44,6 +44,12 @@ const Login = () => {
       setIsLoading(false);
     }
   };
+
+    useEffect(() => {
+  if (isAuthenticateUser()) {
+   navigate("/feed", { replace: true });
+  }
+}, []);
 
   return (
     <div className="flex justify-center xl:fixed lg:fixed items-center w-full min-h-screen bg-gradient-to-b from-gray-900 to-blue-900">

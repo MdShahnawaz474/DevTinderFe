@@ -3,9 +3,13 @@ import { getConnections } from "../services/DataService";
 import type { Connection } from "../types/Types";
 import { useDispatch } from "react-redux";
 import { addConnections } from "../utils/connectionSlice";
+import { getCookie } from "../services/CookieService";
+import { isAuthenticateUser } from "../services/AuthService";
+import { useNavigate } from "react-router-dom";
 
 const Matches = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate()
   const [connections, setConnections] = useState<Connection[]>([]);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
@@ -29,6 +33,11 @@ const Matches = () => {
   };
 
   useEffect(() => {
+    const token = getCookie("token");
+    if (!token || !isAuthenticateUser()) {
+      console.log("Redirecting to login...");
+      navigate("/login");
+    }
     fetchConnection();
   }, []);
 

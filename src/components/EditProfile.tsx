@@ -14,7 +14,6 @@ import UserProfileCardGrid from "./UserProfileCardGrid";
 import { editProfile } from "../services/DataService";
 
 const EditProfile = ({user}:any) => {
- 
   // console.log(user);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
@@ -56,6 +55,9 @@ const [birthDate, setBirthDate] = useState(user?.birthDate || "");
   }
 }, [birthDate]);
 
+
+
+
  const showToast = (message: string, type: "success" | "error" = "success") => {
     setToast({
       show: true,
@@ -68,6 +70,15 @@ const [birthDate, setBirthDate] = useState(user?.birthDate || "");
       setToast(prev => ({...prev, show: false}));
     }, 3000);
   };
+  useEffect(() => {
+  if (toast.show) {
+    const timer = setTimeout(() => {
+      setToast(prev => ({ ...prev, show: false }));
+    }, 3000);
+    return () => clearTimeout(timer);
+  }
+}, [toast.show]);
+
   const saveProfile = async(e:React.FormEvent)=>{
     e.preventDefault();
     setIsLoading(true);
@@ -102,7 +113,7 @@ const [birthDate, setBirthDate] = useState(user?.birthDate || "");
 
     console.log(result);
     
-    
+
     if(!result.success){
        setError(result.message || "Failed to update profile.");
         showToast(result.message || "Failed to update profile.", "error");

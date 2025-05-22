@@ -4,6 +4,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { addRequest, removeRequest } from "../utils/requestSlice";
 import type { RootState } from "../utils/appStore";
 import { GitPullRequest, GitPullRequestClosedIcon } from "lucide-react";
+import { getCookie } from "../services/CookieService";
+import { isAuthenticateUser } from "../services/AuthService";
+import { useNavigate } from "react-router-dom";
 
 // Define the UserType for nested user object
 interface UserType {
@@ -29,6 +32,7 @@ interface RequestType {
 }
 
 const Request = () => {
+  const navigate = useNavigate()
   // Handle the case where the Redux state might be null/undefined
   const requestsFromStore = useSelector((store: RootState) => store.request);
   const requests: RequestType[] = Array.isArray(requestsFromStore) ? requestsFromStore : [];
@@ -70,6 +74,13 @@ const Request = () => {
 
 
   useEffect(() => {
+    const token = getCookie("token");
+  
+  
+    if (!token || !isAuthenticateUser()) {
+      console.log("Redirecting to login...");
+      navigate("/login");
+    }
     fetchRequest();
   }, []);
 
