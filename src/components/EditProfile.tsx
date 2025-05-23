@@ -154,10 +154,10 @@ const [birthDate, setBirthDate] = useState(user?.birthDate || "");
               <p className="text-red-500 mt-1 not-italic">{error}</p>
             </div>
 
-            <form className="space-y-5">
+            <form className="space-y-2">
               {/* FirstName */}
               <div className="form-control">
-                <label className="block text-gray-300 text-sm font-medium mb-2">
+                <label className="block text-gray-300 text-sm font-medium mb-1">
                   First name
                 </label>
                 <div className="relative">
@@ -175,7 +175,7 @@ const [birthDate, setBirthDate] = useState(user?.birthDate || "");
               </div>
 
               <div className="form-control">
-                <label className="block text-gray-300 text-sm font-medium mb-2">
+                <label className="block text-gray-300 text-sm font-medium mb-1">
                   Last name
                 </label>
                 <div className="relative">
@@ -313,7 +313,7 @@ const [birthDate, setBirthDate] = useState(user?.birthDate || "");
               </button>
             </form>
 
-            <div className="mt-6 text-center">
+            <div className="mt-2 text-center">
               <p className="text-sm text-gray-400">
                 Need to change your password?{" "}
                 <a
@@ -342,7 +342,7 @@ const [birthDate, setBirthDate] = useState(user?.birthDate || "");
           <UserProfileCardGrid user={{firstName,lastName,age,gender,about,photoUrl,skills}} />
         </div>
       </div>
-    </div>
+    </div>  
      {/* Toast notification */}
       {toast.show && (
         <div className={`fixed mt-12 justify-center  top-4 right-4 z-50 px-4 py-3 rounded-lg shadow-lg flex  items-center transition-all duration-300 ${
@@ -360,3 +360,5 @@ const [birthDate, setBirthDate] = useState(user?.birthDate || "");
 };
 
 export default EditProfile;
+
+

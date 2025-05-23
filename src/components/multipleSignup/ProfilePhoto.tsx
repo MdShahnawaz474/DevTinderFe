@@ -1,9 +1,9 @@
 import React from 'react';
 import { Camera } from 'lucide-react';
 import {StepHeader} from './StepHeader';
-import type { StepProps } from '../../types/SignupTypes';
+import type { StepProps } from '../../types/Types';
 
-export const Step3ProfilePhoto: React.FC<StepProps> = ({ formData, errors, onChange }) => {
+export const Step3ProfilePhoto: React.FC<StepProps> = ({ formData, onChange }) => {
   return (
     <div className="space-y-5">
       <StepHeader 

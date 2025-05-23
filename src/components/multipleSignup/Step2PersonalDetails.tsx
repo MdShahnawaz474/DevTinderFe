@@ -2,8 +2,8 @@ import React from 'react';
 import { Calendar } from 'lucide-react';
 import {FormSelect} from './FormSelect';
 import {FormInput} from './FormInput';
-import type { StepProps } from '../../types/SignupTypes';
 import { StepHeader } from './StepHeader';
+import type { StepProps } from '../../types/Types';
 
 export const Step2PersonalDetails: React.FC<StepProps> = ({ formData, errors, onChange }) => {
   const genderOptions = [
