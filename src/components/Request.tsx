@@ -196,7 +196,7 @@ const Request = () => {
                     <div className="flex space-x-4">
                       <button
                         className="flex-1 bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded-full transition-colors font-medium flex items-center justify-center"
-                        onClick={() => fetchReviewRequest("", request._id)}
+                        onClick={() => fetchReviewRequest("accepted", request._id)}
                       >
                         <span className="mr-2">✓</span>
                         <span className="flex items-center">
