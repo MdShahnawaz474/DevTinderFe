@@ -8,8 +8,8 @@ interface JwtPayload {
   exp: number; // Expiration time in seconds since epoch
   [key: string]: any;
 }
-// export const BASE_URL =  "/api"  //import.meta.env.VITE_BASEURL;
-export const BASE_URL =  import.meta.env.VITE_BASEURL;
+export const BASE_URL =  "/api"  //import.meta.env.VITE_BASEURL;
+// export const BASE_URL =  import.meta.env.VITE_BASEURL;
 export const loginUser = async ({ emailId, password }: LoginCredentials) => {
   try {
     const res = await axios.post(
