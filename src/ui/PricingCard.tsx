@@ -106,14 +106,14 @@ const PricingSection = () => {
         { withCredentials: true }
       );
 
-      const { amount, keyId, currency, notes, orderId } = paymentOrder.data;
+      const { amount, keyId, currency, notes, orderId  } = paymentOrder.data;
       console.log(keyId);
       
       const options = {
         key: keyId,
         amount,
         currency,
-        name: "devTinder",
+        name: "Dev Tinder",
         description: "connect to other developers",
         order_id: orderId,
         prefill: {

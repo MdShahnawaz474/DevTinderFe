@@ -682,13 +682,12 @@
 
 // export default Portfolio;
 
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import {
   Github,
   Linkedin,
   Twitter,
   Mail,
-  Phone,
   MapPin,
   ExternalLink,
   Download,
@@ -698,25 +697,18 @@ import {
   Award,
   Code,
   Database,
-  Server,
-  Smartphone,
   Monitor,
-  GitBranch,
   CheckCircle,
   Star,
   ArrowRight,
   Send,
-  User,
   Briefcase,
   GraduationCap,
-  MessageSquare,
   Eye,
   Heart,
   Zap,
   Rocket,
-  Globe,
   Shield,
-  Layers,
   Coffee,
 } from "lucide-react";
 
@@ -805,7 +797,7 @@ const Portfolio = () => {
         icon: "⚡",
         color: "from-yellow-400 to-orange-500",
       },
-      
+
       {
         name: "Tailwind CSS",
         level: 88,
@@ -940,27 +932,27 @@ const Portfolio = () => {
 
   const testimonials = [
     {
-      name: "Sarah Johnson",
-      role: "Project Manager",
-      company: "TechCorp",
+      name: "Sahil Khan",
+      role: "Chief Product and Technology Officer",
+      company: "Firstbench",
       message:
         "Shahnawaz delivered exceptional work on our web application. His attention to detail and technical expertise exceeded our expectations.",
       rating: 5,
       avatar: "👩‍💼",
     },
     {
-      name: "Mike Chen",
-      role: "CTO",
-      company: "StartupXYZ",
+      name: "Mohammad Ali",
+      role: "SDE 1",
+      company: "Firstbench",
       message:
         "Working with Shahnawaz was a pleasure. He understood our requirements perfectly and delivered a scalable solution.",
       rating: 5,
       avatar: "👨‍💻",
     },
     {
-      name: "Lisa Wong",
-      role: "Product Owner",
-      company: "DigitalFlow",
+      name: "Vinit Soni",
+      role: "Founder ",
+      company: "EduAid",
       message:
         "Highly recommend Shahnawaz for any full-stack development project. Professional, reliable, and skilled.",
       rating: 5,
@@ -978,7 +970,7 @@ const Portfolio = () => {
     {
       icon: "😊",
       title: "Happy Clients",
-      count: "15+",
+      count: "10+",
       color: "from-green-400 to-emerald-500",
     },
     {
@@ -1328,7 +1320,7 @@ const Portfolio = () => {
                     {/* <User className="w-32 h-32 text-gray-400 z-10" /> */}
                     <img
                       src={
-                       "https://pbs.twimg.com/profile_images/1933478194310471681/mz9qrTTu_400x400.jpg"
+                        "https://pbs.twimg.com/profile_images/1933478194310471681/mz9qrTTu_400x400.jpg"
                       }
                       alt="Md Shahnawaz"
                       className="w-full h-full rounded-full object-cover z-10 select-none pointer-events-none"
@@ -1387,8 +1379,8 @@ const Portfolio = () => {
                 </h3>
 
                 <div className="space-y-6 relative z-10">
-                  {skillList.map((skill, index) => (
-                    <div key={skill.name} className="space-y-3 group/skill">
+                  {skillList.map((skill) => (
+                    <div key={skill.name}  className="space-y-3 group/skill">
                       <div className="flex justify-between items-center">
                         <span className="flex items-center gap-3">
                           <span className="text-2xl group-hover/skill:animate-bounce">
