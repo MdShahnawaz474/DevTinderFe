@@ -141,7 +141,7 @@ export default function UserProfileCardGrid({ user }: { user: any}) {
               }`}
               onMouseEnter={() => setIgnoreHover(true)}
               onMouseLeave={() => setIgnoreHover(false)}
-              onClick={()=>ReviewSendAcceptReject("ignored",_id)}
+              onClick={()=>ReviewSendAcceptReject("ignore",_id)}
             >
               <span className="flex items-center">
                 <GitPullRequestClosedIcon size={18} /> Git Ignore

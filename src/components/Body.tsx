@@ -1,43 +1,41 @@
+import { useDispatch } from "react-redux";
+import Navbar from "./Navbar";
+import { Outlet, } from "react-router-dom";
 
-import { useDispatch } from 'react-redux'
-import Navbar from './Navbar'
-import { Outlet } from 'react-router-dom'
-import { getProfileData } from '../services/DataService';
-import { useEffect } from 'react';
-import { addUser } from '../utils/userSlice';
+import { getProfileData } from "../services/DataService";
+import { useEffect } from "react";
+import { addUser } from "../utils/userSlice";
 
 function Body() {
   // const [data, setData ]= useState()
   const dispatch = useDispatch();
-  const getData = async()=>{
+  const getData = async () => {
     try {
       const result = await getProfileData();
       // console.log(result);
-      
-    if(result){
-      // console.log(result.data);
-      
+
+      if (result) {
+        // console.log(result.data);
+
         dispatch(addUser(result?.data));
         // console.log(result.data);
-        
-    }
+      }
     } catch (error) {
       console.log(error);
-      
     }
-  }
+  };
 
-  useEffect(()=>{
-  
- 
-    getData()
-  },[])
-  
+  useEffect(() => {
+    getData();
+  }, []);
+
   return (
     <div>
-    <Navbar/>
-    <Outlet/></div>
-  )
+      <Navbar /> 
+      <Outlet />
+      {/* <DevTinderLanding/> */}
+    </div>
+  );
 }
 
-export default Body
+export default Body;

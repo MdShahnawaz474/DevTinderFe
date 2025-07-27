@@ -54,7 +54,7 @@ const Feed = () => {
     </div>;
   }
   return (
-  feed && ( <div className="justify-center items-center flex py-11 bg-gradient-to-b from-gray-900 to-blue-950">
+  feed && ( <div className="justify-center items-center min-h-screen flex py-11 bg-gradient-to-b from-gray-900 to-blue-950">
      <UserProfileCardGrid user = {feed[0]}/>
    </div>)
   )
